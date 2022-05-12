@@ -1,13 +1,13 @@
-package com.nekroware.sysloan;
+package com.nekroware.oktoinventory;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SysloanApplication {
+public class OktoInventoryApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SysloanApplication.class, args);
+		SpringApplication.run(OktoInventoryApplication.class, args);
 	}
 
 }
