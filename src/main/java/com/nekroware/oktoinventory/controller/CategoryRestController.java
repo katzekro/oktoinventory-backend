@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,17 +45,28 @@ public class CategoryRestController {
 		return response;
 	} 
 	
-	/*
-	 * Save categories  
-	 * @param id
+	/**
+	 * Save New Category
+	 * @param category
 	 * @return
-	 * */
+	 */
 	@PostMapping("/categories")
 	public ResponseEntity<CategoryResponseRest> saveNewCategory(@RequestBody Category category){
-		
 		ResponseEntity<CategoryResponseRest> response = catService.save(category);
-		
 		return response;
 	}
+	
+	/**
+	 * Update Categories
+	 * @param category
+	 * @param id
+	 * @return
+	 */
+	@PutMapping("/categories/{id}")
+	public  ResponseEntity<CategoryResponseRest> updateCategory(@RequestBody Category category, @PathVariable Long id){
+		ResponseEntity<CategoryResponseRest> response = catService.update(category, id);
+		return response;
+	}
+	
 	
 }
