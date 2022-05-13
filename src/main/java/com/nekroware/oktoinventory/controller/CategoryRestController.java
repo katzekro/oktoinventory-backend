@@ -2,11 +2,15 @@ package com.nekroware.oktoinventory.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nekroware.oktoinventory.model.Category;
 import com.nekroware.oktoinventory.response.CategoryResponseRest;
 import com.nekroware.oktoinventory.services.ICategoryService;
 
@@ -39,5 +43,18 @@ public class CategoryRestController {
 		ResponseEntity<CategoryResponseRest> response = catService.searchById(id);
 		return response;
 	} 
+	
+	/*
+	 * Save categories  
+	 * @param id
+	 * @return
+	 * */
+	@PostMapping("/categories")
+	public ResponseEntity<CategoryResponseRest> saveNewCategory(@RequestBody Category category){
+		
+		ResponseEntity<CategoryResponseRest> response = catService.save(category);
+		
+		return response;
+	}
 	
 }
