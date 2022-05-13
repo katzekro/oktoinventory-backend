@@ -3,6 +3,7 @@ package com.nekroware.oktoinventory.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -68,5 +69,15 @@ public class CategoryRestController {
 		return response;
 	}
 	
+	/**
+	 * Delete Category By Id
+	 * @param id
+	 * @return
+	 */
+	@DeleteMapping("/categories/{id}")
+	public ResponseEntity<CategoryResponseRest> deleteCategoryById(@PathVariable Long id){
+		ResponseEntity<CategoryResponseRest> response = catService.deleteCategoryById(id);
+		return response;
+	}
 	
 }
