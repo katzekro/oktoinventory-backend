@@ -67,7 +67,7 @@ public class CategoryServiceImpl implements ICategoryService{
 			
 		}
 		 
-		return null;
+		return  new ResponseEntity<CategoryResponseRest>(response, HttpStatus.OK);
 	}
 
 	@Override

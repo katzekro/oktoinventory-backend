@@ -2,7 +2,7 @@ package com.nekroware.oktoinventory.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +16,7 @@ import com.nekroware.oktoinventory.model.Category;
 import com.nekroware.oktoinventory.response.CategoryResponseRest;
 import com.nekroware.oktoinventory.services.ICategoryService;
 
-
+@CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
 @RequestMapping("/api/v1")
 public class CategoryRestController {
@@ -25,7 +25,7 @@ public class CategoryRestController {
 	private ICategoryService catService;
 	
 	/*
-	 * Get All categories 
+	 * Get All Categories 
 	 * @return
 	 * */
 	@GetMapping("/categories")
@@ -35,7 +35,7 @@ public class CategoryRestController {
 	}
 	
 	/*
-	 * Get categories using id 
+	 * Get Categories using id 
 	 * @param id
 	 * @return
 	 * */
